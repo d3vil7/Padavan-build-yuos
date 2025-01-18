@@ -11,13 +11,11 @@ wlan_2g_psk="7758521@Qq"                              # 2G WIFI密码最少8位 
 wlan_5g_psk="7758521@Qq"                              # 5G WIFI密码最少8位 空白为不设置
 version_time=$(date +%Y%m%d)                        # 更新时版本号时间: 20210101
 default_file="./user/shared/defaults.h"             # 默认配置文件
-oc_file="./linux-3.4.x/arch/mips/rt2880/init.c"     #file for overclock
+#oc_file="./linux-3.4.x/arch/mips/rt2880/init.c"     #file for overclock
 
-
-sed -r 's/if \(\(reg & 0x[0-9a-fA-F]+\) != 0x[0-9a-fA-F]+\) {/if ((reg & 0x7ff) != 0x362) {/g' $oc_file
-sed -i 's/reg &= ~\(0xff\);/reg &= ~(0x7ff);/g' $oc_file
-sed -i 's/reg \|= \(0xc2\);/reg |= (0x362);/g' $oc_file
-
+#sed -r 's/if \(\(reg & 0x[0-9a-fA-F]+\) != 0x[0-9a-fA-F]+\) {/if ((reg & 0x7ff) != 0x362) {/g' $oc_file
+#sed -i 's/reg &= ~\(0xff\);/reg &= ~(0x7ff);/g' $oc_file
+#sed -i 's/reg \|= \(0xc2\);/reg |= (0x362);/g' $oc_file
 
 echo "修改用户名"
 sed -i 's/SYS_USER_ROOT		"admin"/SYS_USER_ROOT		"'$user_name'"/g' $default_file
